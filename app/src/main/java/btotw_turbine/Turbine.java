@@ -1,13 +1,17 @@
 package btotw_turbine;
 
 public class Turbine {
-    
+
     private float windSpeed; // m/s
     private float torque;
     private float power;
+
+    private Light light;
+
+
     
     public Turbine() {
-
+        this.light = new Light();
     }
 
 
