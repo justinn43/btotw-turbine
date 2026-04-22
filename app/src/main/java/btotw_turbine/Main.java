@@ -9,6 +9,11 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello (best turbine of the) World!");
 
+        if (args.length < 1) {
+            System.out.println("Invalid arguments.");
+            return;
+        }
+
         return;
     }
 }
