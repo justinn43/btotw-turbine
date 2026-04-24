@@ -16,6 +16,10 @@ public class Main {
         new Command("light", "light [command]", "Modify the mounted light on the turbine.", LightCommands::lightCommand)
     );
 
+    public static Turbine getTurbine() {
+        return TURBINE;
+    }
+
     
 
 

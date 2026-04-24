@@ -30,10 +30,10 @@ public record Command(String name, String fullname, String description, Executio
         System.out.println();
         System.out.println(RichText.text("Usage: ", Color.GREEN).decorate(Decoration.BOLD).append(usage).toFormattedString());
         System.out.println("List of commands below.");
-        System.out.println("  Name            Description");
-        System.out.println("  ----            -----------");
+        System.out.println("  Name               Description");
+        System.out.println("  ----               -----------");
         for (Command cmd : commands) {
-            System.out.println(String.format("  %-15s %s", cmd.fullname(), cmd.description()));
+            System.out.println(String.format("  %-18s %s", cmd.fullname(), cmd.description()));
         }
     }
 }

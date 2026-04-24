@@ -53,6 +53,10 @@ public class Turbine {
         return Status.OKAY;
     }
 
+    public Light light() {
+        return this.light;
+    }
+
     /**
      * Prints the status of the current turbine
      */
@@ -64,13 +68,26 @@ public class Turbine {
             )
         );
 
-        System.out.println(RichText.text("  Windspeed: ").append(String.format("%.4f m/s", this.windSpeed)).toFormattedString());
+        String windSpeed = String.format("%.4f m/s", this.windSpeed);
+        String revolutions = String.format("%.4f rpm", this.rotationSpeed);
+        
+        RichText formattedWindSpeed = RichText.text(String.format("%-13s", windSpeed));
+        if (this.windSpeed > WIND_THRESHOLD) {
+            formattedWindSpeed = formattedWindSpeed.foreground(Color.BRIGHT_RED);
+        }
 
-        System.out.println(RichText.text("  Rotation:  ").append(String.format("%.4f rps", this.rotationSpeed)).toFormattedString());
+        RichText formattedRevolutions = RichText.text(String.format("%-13s", revolutions));
+        if (this.rotationSpeed > ROTATION_THRESHOLD) {
+            formattedRevolutions = formattedRevolutions.foreground(Color.BRIGHT_RED);
+        }
 
-        System.out.println(RichText.text("  Torque:    ").append(String.format("%.4f", this.torque)).toFormattedString());
+        System.out.println(RichText.text("  Windspeed: ").append(formattedWindSpeed).append(String.format(" Safe Range: [%.1f, %.1f]", 0.0f, WIND_THRESHOLD)).toFormattedString());
 
-        System.out.println(RichText.text("  Power:     ").append(String.format("%.4f", this.power)).toFormattedString());
+        System.out.println(RichText.text("  Rotation:  ").append(formattedRevolutions).append(String.format(" Safe Range: [%.1f, %.1f]", 0.0f, ROTATION_THRESHOLD)).toFormattedString());
+
+        System.out.println(RichText.text("  Torque:    ").append(String.format("%-13.4f", this.torque)).toFormattedString());
+
+        System.out.println(RichText.text("  Power:     ").append(String.format("%-13.4f", this.power)).toFormattedString());
     }
 
 
