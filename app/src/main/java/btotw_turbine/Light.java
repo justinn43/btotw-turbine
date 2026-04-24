@@ -8,6 +8,13 @@ public class Light {
 
     }
 
+    public float getBrightness() {
+        return this.brightness;
+    }
+    public float getHue() {
+        return this.hue;
+    }
+
     public void setHue(float hue) {
         this.hue = (hue % 360 + 360) % 360;
     }
