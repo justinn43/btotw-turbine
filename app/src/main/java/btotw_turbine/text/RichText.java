@@ -71,6 +71,16 @@ public sealed interface RichText permits RichStringText {
     String toFormattedString();
 
 
+    default RichText bold() {
+        return this.decorate(Decoration.BOLD); 
+    }
+    default RichText italic() {
+        return this.decorate(Decoration.ITALIC); 
+    }
+    default RichText underlined() {
+        return this.decorate(Decoration.UNDERLINE); 
+    }
+
     /**
      * Creates a rich text from the passed string. The color will be white on no background.
      * @param text The text to use

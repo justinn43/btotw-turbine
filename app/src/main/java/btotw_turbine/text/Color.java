@@ -1,5 +1,8 @@
 package btotw_turbine.text;
 
+/**
+ * Represents an ansi color
+ */
 public enum Color {
     BLACK(30, 40),
     RED(31, 41),

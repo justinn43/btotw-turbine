@@ -51,8 +51,8 @@ public record RichStringText(
     public String toFormattedString() {
         //build ansi color sequences
         String reset = "\u001B[0m";
-        String color = "\u001B[";
-        color = color + this.foreground.foreground();
+        String color = "\u001B[0";
+        color = color + ";" + this.foreground.foreground();
         if (this.background != null) {
             color = color + ";" + this.background.background();
         }
@@ -81,5 +81,10 @@ public record RichStringText(
     @Override
     public RichText background(Color color) {
         return new RichStringText(this.text, this.children, this.decorations, this.foreground, color);
+    }
+
+    @Override
+    public final String toString() {
+        return this.toFormattedString();
     }
 }

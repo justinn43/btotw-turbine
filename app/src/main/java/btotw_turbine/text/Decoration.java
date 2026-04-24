@@ -1,5 +1,8 @@
 package btotw_turbine.text;
 
+/**
+ * Ansi styles
+ */
 public enum Decoration {
     BOLD(1),
     FAINT(2),

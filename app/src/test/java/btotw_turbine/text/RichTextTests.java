@@ -186,6 +186,6 @@ public class RichTextTests {
 
 
         String formatted = text.toFormattedString();
-        assertEquals("\u001B[37;44;2mHello\u001B[91m World\u001B[0m\u001B[32;4m!\u001B[0m\u001B[0m", formatted);
+        assertEquals("\u001B[0;37;44;2mHello\u001B[0;91m World\u001B[0m\u001B[0;32;4m!\u001B[0m\u001B[0m", formatted);
     }
 }
