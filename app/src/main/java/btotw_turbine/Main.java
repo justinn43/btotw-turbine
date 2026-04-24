@@ -3,6 +3,7 @@ package btotw_turbine;
 import java.util.List;
 
 import btotw_turbine.cli.Command;
+import btotw_turbine.cli.LightCommands;
 import btotw_turbine.text.Color;
 import btotw_turbine.text.RichText;
 
@@ -12,8 +13,11 @@ public class Main {
     private static final List<Command> COMMANDS = List.of(
         new Command("help", "Displays this message.", Main::printHelp),
         new Command("status", "Shows the status of the turbine.", (args) -> TURBINE.printStatus()),
-        new Command("light", "light [command]", "Modify the mounted light on the turbine.", (args) -> TURBINE.lightCommand(args))
+        new Command("light", "light [command]", "Modify the mounted light on the turbine.", LightCommands::lightCommand)
     );
+
+    
+
 
 
     private static void printHelp(String[] args) {

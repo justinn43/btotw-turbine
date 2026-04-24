@@ -53,16 +53,6 @@ public class Turbine {
         return Status.OKAY;
     }
 
-
-
-    /**
-     * Used to query information about the mounted light
-     * @param args
-     */
-    public void lightCommand(String[] args) {
-
-    }
-
     /**
      * Prints the status of the current turbine
      */
