@@ -10,7 +10,7 @@ public class Turbine {
     public static final float ROTATION_THRESHOLD = 3;
 
     private float windSpeed; // m/s
-    private float rotationSpeed;
+    private float rotationSpeed; // in revolutions per second rps
     private float torque;
     private float power;
 
@@ -69,7 +69,7 @@ public class Turbine {
         );
 
         String windSpeed = String.format("%.4f m/s", this.windSpeed);
-        String revolutions = String.format("%.4f rpm", this.rotationSpeed);
+        String revolutions = String.format("%.4f rps", this.rotationSpeed);
         
         RichText formattedWindSpeed = RichText.text(String.format("%-13s", windSpeed));
         if (this.windSpeed > WIND_THRESHOLD) {
